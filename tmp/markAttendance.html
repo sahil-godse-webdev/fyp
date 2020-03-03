@@ -1,0 +1,91 @@
+<style>
+    select{
+        width: 200px;   
+    }
+    td{
+        padding: 20px;
+    }
+</style>
+
+<div ng-controller="markActrl" class="m-5 p-5">
+<table>
+    <tr>
+        <td>BRANCH:</td>
+        <td>
+            <div>
+                <select ng-model='branch' class="rounded-pill form-control form-control-sm">
+                    <option>INFT</option>
+                    <option>CMPN</option>
+                    <option>ETRX</option>
+                    <option>EXTC</option>
+                    <option>BIOM</option>
+                </select>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>YEAR & SEMESTER:</td>
+        <td>
+            <div>
+                <select ng-model='year' class="rounded-pill form-control form-control-sm">
+                    <option value="FE-1">FE SEM1</option>
+                    <option value="FE-2">FE SEM2</option>
+                    <option value="SE-3">SE SEM3</option>
+                    <option value="SE-4">SE SEM4</option>
+                    <option value="TE-5">TE SEM5</option>
+                    <option value="TE-6">TE SEM6</option>
+                    <option value="BE-7">BE SEM7</option>
+                    <option value="BE-8">BE SEM8</option>
+                </select>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>DIVISION:</td>
+        <td>
+            <div>
+                <select ng-model='division' class="rounded-pill form-control form-control-sm">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                </select>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input type="radio" name="lecprac" id="lecture" ng-click='lecture()'> <label for="lecture">Lecture</label> &nbsp; &nbsp;
+            <input type="radio" name="lecprac" id="practical" ng-click='practical()'><label for="practical"> Practical</label>
+        </td>
+    </tr>
+    <tr id="batch" style="display: none;">
+        <td>BATCH:</td>
+        <td>
+             <select ng-model='batch' class="rounded-pill form-control form-control-sm">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </td>
+    </tr>
+    <tr id="type_of_lecture" style="display: none;">
+        <td>TYPE OF LECTURE:</td>
+        <td>
+             <select ng-model='type_of_lecture' class="rounded-pill form-control form-control-sm">
+                <option>compulsory</option>
+                <option>DLE</option>
+                <option>ILE</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <a href="#getstud/{{branch}}-{{year}}-{{division}}-{{batch}}-{{type_of_lecture}}" class="btn btn-danger float-right text-white border-0 p-3">MARK ATTENDANCE</a>
+        </td>
+    </tr>
+</table>
+</div>

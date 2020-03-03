@@ -1,0 +1,90 @@
+<div ng-controller="getallstudents">
+    <div class="my-3 p-5 border">
+      <div class="row">
+        <div class="col-sm-2">
+          <a href="#" class="btn btn-mdb-color btn-sm disabled" tabindex="-1" role="button" aria-disabled="true">{{date}} {{month}} {{year}}</a>
+        </div>
+      </div>
+
+      <div class="row my-3 p-2">
+        <div class="col-sm-3">Select Professor:</div>
+        <div class="col-sm-3"><select class="rounded-pill" ng-model='professor_name'>
+          <option  ng-repeat='ss in subject'>{{ss.professor}}</option>
+        </select></div>
+
+        <div class="col-sm-3">Select Subject: </div>
+        <div class="col-sm-3">        <select ng-change='selected_subject()' ng-model="selectedItem" class="rounded-pill">
+          <option  ng-repeat='ss in subject'>{{ss.subject_name}}</option>
+        </select></div>
+        
+      </div>
+
+      <div class="row my-3 p-2">
+        <div class="col-sm-1">from:</div>
+        <div class="col-sm-2"><select class="rounded-pill" ng-model='from'>
+          <option>9</option>
+          <option>10</option>
+          <option>11:15</option>
+          <option>12:15</option>
+          <option>1:45</option>
+          <option>2:45</option>
+          <option>3:45</option>
+          <option>4:45</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+        </select></div>
+        <div class="col-sm-1">to:</div>
+        <div class="col-sm-2"><select class="rounded-pill" ng-model='to'>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12:15</option>
+          <option>1:15</option>
+          <option>2:45</option>
+          <option>3:45</option>
+          <option>4:45</option>
+          <option>5:45</option>
+          <option>6</option>
+          <option>7</option>
+        </select></div>
+        <div class="col-sm-3">No. of hours:</div>
+        <div class="col-sm-3"><select class="rounded-pill" ng-model='no_of_hours'>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select></div>
+      </div>
+
+
+        <table class="table">
+          <thead>
+            <tr class="text-center">
+              <th scope="col">Sr No</th>
+              <th scope="col">Roll Number</th>
+              <th scope="col">Name of Student</th>
+              <th scope="col" colspan="2">Attendance Ststus</th>
+              <th scope="col" style="display: none;">DLE</th>
+              <th scope="col" style="display: none;">ILE</th>
+              <th scope="col" style="display: none;">Identity</th>
+            </tr>
+          </thead>
+          <tbody>      
+            <tr ng-repeat="i in students|filter:select_student" class="text-center">
+              <td>{{i.id}}</td>
+              <td id="roll">{{i.roll_no}}</td>
+              <td>{{i.name}}</td>
+              <td>
+                <button type="button" id="p" ng-click='present(i)' class="btn btn-outline-success btn-sm">Present</button>
+              </td>
+              <td>
+                <button type="button" ng-click='absent(i)' class="btn btn-outline-danger btn-sm">Absent</button>
+              </td>
+              <td style="display: none;">{{i.DLE}}</td>
+              <td style="display: none;">{{i.ILE}}</td>
+              <td style="display: none;">{{i.verified}}</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
